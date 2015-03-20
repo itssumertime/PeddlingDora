@@ -33,9 +33,102 @@
 
 				</header>
 				<footer>
-					<a href="#banner" class="button style2 scrolly-middle">Explore my Journey!</a>
+					<a href="#banner" class="button style2 scrolly-middle">Explore my Journey!</a>		
 				</footer>
 			</section>
+
+
+
+					<head>
+						    <!-- <meta name="viewport" content="initial-scale=1.0, user-scalable=no"> -->
+					    <meta charset="utf-8">
+					    <title>Simple Polylines</title>
+					    <style>
+					      html, body, #map-canvas {
+					        height: 85%;
+					        margin: 50px;
+					        padding: 25px
+					      }
+					    </style>
+					    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=false"></script>
+					    <script>
+
+					function initialize() {
+						var shattuck = new google.maps.LatLng(37.8704,-122.2687);
+					    var glade = new google.maps.LatLng(37.8734798,-122.2597059);
+					    var obrien = new google.maps.LatLng(37.874358,-122.258933);
+					    var soda = new google.maps.LatLng(37.875624, -122.258922);
+					    var campanile = new google.maps.LatLng(37.872031, -122.257763);
+					    var sproul = new google.maps.LatLng(37.869566, -122.259152);
+
+					  var mapOptions = {
+					    zoom: 16,
+					    center: new google.maps.LatLng(37.8734798,-122.2597059),
+					    mapTypeId: google.maps.MapTypeId.STREETVIEW
+					  };
+
+					  var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+
+					    
+					  var flightPlanCoordinates = [
+					  	sproul,
+					  	campanile,
+					  	glade,
+					  	obrien,
+					  	soda
+					  ];
+					  // var marker = new google.maps.Marker({
+					  //     position: shattuck,
+					  //     map: map,
+					  //     title: 'Shattuck'
+					  // });
+					  var marker = new google.maps.Marker({
+					      position: soda,
+					      map: map,
+					      title: 'Soda Hall'
+					  });
+					  var marker = new google.maps.Marker({
+					      position: sproul,
+					      map: map,
+					      title: 'Sproul Plaza'
+					  });
+					  var marker = new google.maps.Marker({
+					      position: glade,
+					      map: map,
+					      title: 'Memorial Glade'
+					  });
+					  var marker = new google.maps.Marker({
+					      position: obrien,
+					      map: map,
+					      title: 'O\'Brien Hall'
+					  });
+					  var marker = new google.maps.Marker({
+					      position: campanile,
+					      map: map,
+					      title: 'Campanile'
+					  });
+					  var flightPath = new google.maps.Polyline({
+					    path: flightPlanCoordinates,
+					    geodesic: true,
+					    strokeColor: '#0000FF',
+					    strokeOpacity: 1.0,
+					    strokeWeight: 2
+					  });
+
+					  flightPath.setMap(map);
+					}
+
+					google.maps.event.addDomListener(window, 'load', initialize);
+
+					    </script>
+					  </head>
+					  <body>
+					    <div id="map-canvas"></div>
+					  </body>
+
+
+
+
 
 		<!-- Banner -->
 			<section id="banner">
